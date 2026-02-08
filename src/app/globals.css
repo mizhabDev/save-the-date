@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+:root {
+  /* Wedding Color Palette */
+  --ivory: #FFFEF7;
+  --beige: #F5F1E8;
+  --cream: #FAF8F3;
+  --muted-gold: #C9A962;
+  --gold-light: #D4B978;
+  --soft-green: #8B9A7D;
+  --green-light: #A8B89E;
+  --text-dark: #2C2C2C;
+  --text-muted: #5A5A5A;
+  --text-light: #7A7A7A;
+  --border-soft: rgba(201, 169, 98, 0.2);
+  
+  --background: var(--ivory);
+  --foreground: var(--text-dark);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-cormorant);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Islamic Geometric Pattern Background */
+.islamic-pattern-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(201, 169, 98, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 154, 125, 0.03) 0%, transparent 50%);
+  background-size: 200px 200px;
+  position: relative;
+}
+
+.islamic-pattern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a962' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Elegant Cards */
+.elegant-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 4px 30px rgba(201, 169, 98, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s ease;
+}
+
+.elegant-card:hover {
+  box-shadow: 
+    0 8px 40px rgba(201, 169, 98, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Typography */
+.heading-xl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.heading-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.heading-md {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.text-elegant {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-elegant {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.3);
+}
+
+.btn-elegant:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(201, 169, 98, 0.4);
+}
+
+/* Music Toggle Button */
+.music-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--muted-gold), var(--gold-light));
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(201, 169, 98, 0.4);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(201, 169, 98, 0.5);
+}
+
+/* Section Spacing */
+.section {
+  padding: 5rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 7rem 2rem;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Divider */
+.islamic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.divider-line {
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--muted-gold), transparent);
+}
+
+.divider-ornament {
+  color: var(--muted-gold);
+  font-size: 1.5rem;
+}
+
+/* Form Inputs */
+.form-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--muted-gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-light);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Wish Cards */
+.wish-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.wish-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(201, 169, 98, 0.1);
+}
+
+/* Countdown */
+.countdown-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.countdown-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 300;
+  color: var(--muted-gold);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* Arabic Calligraphy */
+.bismillah {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--muted-gold);
+  text-align: center;
+  direction: rtl;
+  line-height: 1.8;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+  background: linear-gradient(180deg, 
+    rgba(255, 254, 247, 0) 0%,
+    rgba(245, 241, 232, 0.5) 50%,
+    rgba(255, 254, 247, 0) 100%
+  );
+}
+
+/* Soft glow effect */
+.soft-glow {
+  box-shadow: 
+    0 0 60px rgba(201, 169, 98, 0.1),
+    0 0 100px rgba(139, 154, 125, 0.05);
+}
